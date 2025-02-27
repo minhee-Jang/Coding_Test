@@ -26,8 +26,8 @@ if __name__=="__main__":
     input = sys.stdin.readline
     N, M = map(int, input().split())
 
-    visited = [[(False) for _ in range(M+1)] for _ in range(N+1)]
-    ans = [[-1 for _ in range(M+1)] for _ in range(N+1)]
+    visited = [[(False) for _ in range(M+1)] for _ in range(N+1)]   
+    ans = [[-1 for _ in range(M+1)] for _ in range(N+1)]     # -1 여부로 업데이트 판단 가능함/ visited 배열 필요 없을듯 
     value =[[0 for _ in range(M+1)]]
     myque = deque()
 
