@@ -1,10 +1,7 @@
 from itertools import permutations
 from math import sqrt
 def solution(numbers):  #N최대 5만
-    if int(numbers) <=1:
-        return 0
-    if numbers in ["2", "3", "5", "7"]:
-        return 1
+
     num = []
     for i in numbers:  # 7
         num.append(i)    
