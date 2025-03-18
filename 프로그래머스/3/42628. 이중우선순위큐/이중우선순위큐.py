@@ -32,10 +32,7 @@ def solution(operations):
     for _ in range(len(low.queue)):
         _, value = low.get()
         l.append(value)
-
-    for num in l:
-        if num in h:
-            ans.append(num)
+    ans = list(set(h) & set(l))
             
     if not ans:
         answer = [0,0]
