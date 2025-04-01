@@ -16,7 +16,7 @@ def solution(n, costs):
         par_1 = find(n1)  # 4의 부모 3
         par_2 = find(n2)  # 6의 부모 2
         if par_1 != par_2: # 다르다면
-            # 부모 통일 
+            #뽑힌 부모는 node = parent[node] 임
             parent[par_1] = min(par_1, par_2)
             parent[par_2] = min(par_1, par_2)
             return True #answer 가능
