@@ -36,11 +36,11 @@ def rotate_90(r, c, place): #각 좌표에서 rotate 90* 연속으로 해서 90~
     arr = [row[c-1:c+2] for row in place[r-1:r+2]]
 
     new_90 = [[0] * 3 for _ in range(3)]   # 90도 회전
-    for i in range(3):
+    for i in range(3):      #9
         for j in range(3):
             new_90[j][3 - i - 1] = arr[i][j]
 
-    for i in range(3):
+    for i in range(3):   #
         for j in range(3):
             place[r+i-1][c+j-1] = new_90[i][j]
 
@@ -66,11 +66,11 @@ def first_find(place):
     find_max = [(0, 0)]
     k_turn = 0
     for i in range(1,4):
-        for j in range(1,4):     #격자 회전 가능 범위 9개
+        for j in range(1,4):     #격자 회전 가능 범위 9개       # 시간복잡도: 9* 625*9
             test_map = copy.deepcopy(place)
             for k in range(1, 5):
-                test_map = rotate_90(i, j, test_map)  #90
-                value, trace = BFS(test_map)
+                test_map = rotate_90(i, j, test_map)  # N = 9
+                value, trace = BFS(test_map)   # 625 
                 if k != 4:  # 원상복구 아니면
                     if find_max[-1][0] < value or find_max[-1][0] ==0:  # 최대값보다 높으면 #초기화
                         find_max = []
@@ -86,8 +86,8 @@ def first_find(place):
         k_turn += find_max[0][0]
         f_max = find_max[0][-1]
         f_trace = find_max[0][-2]
-        while flag:
-            v, flag, f_max, f_trace = gen_find(f_trace, f_max, flag)
+        while flag:                      # 최대 시간복잡도 N=100   , 총 62500
+            v, flag, f_max, f_trace = gen_find(f_trace, f_max, flag)    # 625
             k_turn += v
     else:
         return 0
